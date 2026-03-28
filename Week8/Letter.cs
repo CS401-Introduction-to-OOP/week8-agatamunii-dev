@@ -1,11 +1,9 @@
 public class Letter : DeliveryItem
 {
-    public int Brightness { get; private set; }
 
     public Letter(string TrackingNumber, double Weight) : base(TrackingNumber, Weight)
     {
-
-        Brightness = 100;
+        
     }
 
     public override double CalculateCost()
