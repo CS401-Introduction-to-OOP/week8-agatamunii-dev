@@ -1,28 +1,29 @@
-using System.Globalization;
-
-public class Parcel : DeliveryItem
+namespace wwwww
 {
-    
-    public string Dimensions { get; private set;  }
-    
-    public Parcel(string TrackingNumber, double Weight, string Dimensions) : base(TrackingNumber, Weight)
+    using System.Globalization;
+
+    public class Parcel : DeliveryItem
     {
-        Dimensions = Dimensions;
-    }
 
-    public override double CalculateCost()
-    {
-        double Cost = 50 + Weight * 25;
-        Console.WriteLine($"Ціна - {Cost}");
+        public string Dimensions { get; private set; }
 
-        return Cost;
-    }
+        public Parcel(string TrackingNumber, double Weight, string dimensions) : base(TrackingNumber, Weight)
+        {
+            Dimensions = dimensions;
+        }
+
+        public override double CalculateCost()
+        {
+            double Cost = 50 + Weight * 25;
+            return Cost;
+        }
 
 
-    public override void PrintInfo()
-    {   
-        base.PrintInfo();
-        Console.WriteLine(Dimensions);
-        Console.WriteLine($"Ціна доставки - {15 + Weight * 10}");
+        public override void PrintInfo()
+        {
+            base.PrintInfo();
+            Console.WriteLine($" Об'єм - {Dimensions}");
+            Console.WriteLine($" Ціна доставки - {15 + Weight * 10}");
+        }
     }
 }
